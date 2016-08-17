@@ -27,3 +27,7 @@ set expandtab
 set paste
 set ruler
 set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
+
+" some colors
+hi TabLineFill ctermfg=LightBlue ctermbg=DarkBlue
+hi TabLineSel ctermfg=Green ctermbg=Green
