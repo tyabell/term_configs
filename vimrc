@@ -25,7 +25,8 @@ set expandtab
 set paste
 set ruler
 set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
-
+let g:netrw_banner = 0
+let g:netrw_liststyle = 1
 
 
 " Lucario - The best colorful flat theme ever
@@ -45,7 +46,8 @@ endif
 let g:colors_name = "lucario"
 
 hi Cursor       cterm=NONE guifg=#2b3e50 guibg=#f8f8f2
-hi Visual       ctermfg=NONE ctermbg=16 cterm=NONE guifg=NONE guibg=#19242f gui=NONE
+hi Visual       term=reverse cterm=reverse guibg=Grey
+" hi Visual       ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#19242f gui=NONE
 hi CursorLine   ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#405160 gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#405160 gui=NONE
 hi ColorColumn  ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#405160 gui=NONE
