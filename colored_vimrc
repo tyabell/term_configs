@@ -14,6 +14,8 @@ nmap <C-up> <C-y>
 nmap <C-down> <C-e>
 nnoremap <C-S-Left> :tabprevious<CR>
 nnoremap <C-S-Right> :tabnext<CR>
+" easy write when you forget to sudo
+command W w !sudo tee "%" > /dev/null
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -63,9 +65,11 @@ hi Directory    ctermfg=177 ctermbg=NONE cterm=NONE guifg=#ca94ff guibg=NONE gui
 hi Folded       ctermfg=68 ctermbg=23 cterm=NONE guifg=#5c98cd guibg=#2b3e50 gui=NONE
 
 " Colors for tabs in cterm
-hi TabLineFill  ctermfg=12
-hi TabLine      ctermfg=17 ctermbg=11 cterm=NONE
-hi TabLineSel   ctermfg=8 ctermbg=14 cterm=NONE
+hi TabLineFill  ctermfg=60
+" dark on dark for inactive
+hi TabLine      ctermfg=0 ctermbg=0 cterm=NONE
+" dark on light for active
+hi TabLineSel   ctermfg=0 ctermbg=255 cterm=NONE
 
 hi Normal       ctermfg=231 ctermbg=NONE cterm=NONE guifg=#f8f8f2 guibg=#2b3e50 gui=NONE
 hi Boolean      ctermfg=177 ctermbg=NONE cterm=NONE guifg=#ca94ff guibg=NONE gui=NONE
