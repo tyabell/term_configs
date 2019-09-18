@@ -1,14 +1,24 @@
 # Get the Source Code Pro font to add some of the funny characters
 # https://github.com/adobe-fonts/source-code-pro/releases/tag/2.030R-ro/1.050R-it
 # source-file ~/.tmux.conf
+
 # keybinds/unbinds
+set -g prefix C-b
+
 unbind ,
 bind-key , previous-window
 unbind .
 bind-key . next-window
 unbind A
 bind-key A command-prompt 'rename-window %%'
-set -g prefix C-b
+
+# enter copy mode with ctrl+b [
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+
+# move window left/right with shift+arrow key
+bind-key S-Left swap-window -t -1
+bind-key S-Right swap-window -t +1
 
 set-option -g set-titles on
 set-option -g set-titles-string '#T'
@@ -21,23 +31,14 @@ set -g base-index 1
 set -g bell-action any
 setw -g monitor-activity on
 set -g visual-activity on
-#set -g default-terminal "screen-256color"
 set -g default-terminal "xterm"
-#set -g default-terminal "rxvt"
 setw -g xterm-keys on
 setw -g mode-keys vi
 set-window-option -g mode-keys vi
 set -g status-keys vi
 
-# enter copy mode with ctrl+b [
-bind-key -T copy-mode-vi 'v' send -X begin-selection
-bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
-
 # auto collapse numbers when closing panes
 set-option -g renumber-windows on
-
-bind-key S-Left swap-window -t -1
-bind-key S-Right swap-window -t +1
 
 # statusbar
 set -g status-interval 1
