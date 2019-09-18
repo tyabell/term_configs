@@ -1,0 +1,70 @@
+# Get the Source Code Pro font to add some of the funny characters
+# https://github.com/adobe-fonts/source-code-pro/releases/tag/2.030R-ro/1.050R-it
+# source-file ~/.tmux.conf
+# keybinds/unbinds
+unbind ,
+bind-key , previous-window
+unbind .
+bind-key . next-window
+unbind A
+bind-key A command-prompt 'rename-window %%'
+set -g prefix C-b
+
+set-option -g set-titles on
+set-option -g set-titles-string '#T'
+
+# vim escape delay
+set -s escape-time 0
+
+set -g history-limit 5000
+set -g base-index 1
+set -g bell-action any
+setw -g monitor-activity on
+set -g visual-activity on
+#set -g default-terminal "screen-256color"
+set -g default-terminal "xterm"
+#set -g default-terminal "rxvt"
+setw -g xterm-keys on
+setw -g mode-keys vi
+set-window-option -g mode-keys vi
+set -g status-keys vi
+
+# enter copy mode with ctrl+b [
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+
+# auto collapse numbers when closing panes
+set-option -g renumber-windows on
+
+bind-key S-Left swap-window -t -1
+bind-key S-Right swap-window -t +1
+
+# statusbar
+set -g status-interval 1
+set -g status-justify left
+set -g status-left '#[bold,fg=colour0,bg=colour33]#T#[bold,fg=colour33,bg=colour0]'
+set -g status-left-length 30
+set -g status-right "#[fg=colour15]#[fg=colour0,bg=colour15]%Y.%m.%d#[fg=colour0]#[fg=colour15,bg=colour0]%R"
+
+# default statusbar colors
+set-option -g status-style fg=colour136,bg=colour0,default
+
+# default window title colors
+set-window-option -g window-status-style fg=colour244,bg=default
+
+# active window title colors
+set-window-option -g window-status-current-style fg=colour69,bg=colour62
+
+# pane border
+set-option -g pane-active-border-style fg=colour33,bg=colour17
+
+# message text
+set-option -g message-style fg=colour0,bg=colour15
+
+# pane number display
+set-option -g display-panes-active-colour colour33  #blue
+set-option -g display-panes-colour colour69
+
+# clock
+set-window-option -g clock-mode-colour colour64     #green
+set -g window-status-separator '■'
