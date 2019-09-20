@@ -1,7 +1,4 @@
-# Get the Source Code Pro font to add some of the funny characters
-# https://github.com/adobe-fonts/source-code-pro/releases/tag/2.030R-ro/1.050R-it
 # source-file ~/.tmux.conf
-
 # keybinds/unbinds
 set -g prefix C-b
 
@@ -43,9 +40,10 @@ set-option -g renumber-windows on
 # statusbar
 set -g status-interval 1
 set -g status-justify left
-set -g status-left '#[bold,fg=colour0,bg=colour33]#T#[bold,fg=colour33,bg=colour0]'
+#set -g status-left '#[bold,fg=colour0,bg=colour33]#T#[bold,fg=colour33,bg=colour0]>'
+set -g status-left '#[bold,fg=colour33,bg=default]|#T#[bold,fg=colour33,bg=default] > '
 set -g status-left-length 30
-set -g status-right "#[fg=colour15]#[fg=colour0,bg=colour15]%Y.%m.%d#[fg=colour0]#[fg=colour15,bg=colour0]%R"
+set -g status-right "#[fg=colour15]< #[fg=colour0,bg=default]%Y.%m.%d#[fg=colour0]#[fg=colour15,bg=default] < %R|"
 
 # default statusbar colors
 set-option -g status-style fg=colour136,bg=colour0,default
@@ -68,4 +66,4 @@ set-option -g display-panes-colour colour69
 
 # clock
 set-window-option -g clock-mode-colour colour64     #green
-set -g window-status-separator '■'
+set -g window-status-separator ' || '
